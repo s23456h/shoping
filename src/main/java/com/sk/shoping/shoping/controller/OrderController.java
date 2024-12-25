@@ -20,7 +20,7 @@ public class OrderController {
     //create
     @PostMapping
     public ResponseEntity<Orders> createOrder(@RequestBody Order orderModel, @RequestHeader("role") String role, @RequestHeader("username") String username){
-        if(role.equals("PUBLISHER")) {
+        if(role.equals("PUBLISHER") && orderModel.getStatus().isEmpty() || orderModel.getStatus().equalsIgnoreCase("rework") ) {
             Orders orders=new Orders();
             orders.setRecordId(orderModel.getRecordId());
             orders.setTaskId(orderModel.getTaskId());
