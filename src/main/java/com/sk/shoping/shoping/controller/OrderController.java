@@ -50,7 +50,7 @@ public class OrderController {
                 Orders order1 = orderService.saveOrder(orders);
                 return ResponseEntity.status(HttpStatus.OK).body(order1);
             }else{
-                return new ResponseEntity<>(HttpStatus.CONFLICT);
+                return new ResponseEntity<>(HttpStatus.PRECONDITION_FAILED);
             }
         }
         else if(role.equals("APPROVER")){
