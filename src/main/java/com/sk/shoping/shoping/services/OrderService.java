@@ -1,11 +1,13 @@
 package com.sk.shoping.shoping.services;
 
+import com.sk.shoping.shoping.entity.Orders;
 import com.sk.shoping.shoping.model.Order;
 
 import java.util.List;
 
 public interface OrderService {
-    Order saveUser(Order order);
+    Orders saveOrder(Orders order);
 
-    Order getUser(String userId);
+    List<Orders> getOrder();
+    boolean validate(String orderId);
 }
